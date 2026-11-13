@@ -82,9 +82,7 @@ under an isolated directory.
 Run `whiteboard app pick [--review <uuid>]` to select a review. Bare `whiteboard app`
 starts the app. `whiteboard info` does not start it.
 
-Home lists review descriptors derived from `review.json`. Missing worktrees or
-documents remain visible but disabled. Reopening creates a desktop-owned active
-session; candidates never appear on Home.
+Home lists reviews from the review store.
 
 ### Legacy reviews
 
