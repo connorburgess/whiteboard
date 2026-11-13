@@ -86,14 +86,13 @@ Home lists review descriptors derived from `review.json`. Missing worktrees or
 documents remain visible but disabled. Reopening creates a desktop-owned active
 session; candidates never appear on Home.
 
-### Legacy review import
+### Legacy reviews
 
-Reviews published from MDX before this release were imported into the JSON
-review store when Home lists them or when they are opened. A review is
-imported once its uuid has a row in the store: Home then shows only the JSON
-entry, and opening routes to the JSON canvas. Every sealed revision becomes a
-store version. Nothing is written back into the legacy review directory. A
-review whose repository is no longer on this machine stays legacy.
+Reviews published from MDX are no longer imported into the JSON review store.
+Their directories stay on disk and Home does not list them. A request for one
+by its UUID reports that the review was not found and suggests asking an agent
+to migrate it. Reviews imported before the importer was removed stay in the
+store.
 
 ### End-to-end checks
 

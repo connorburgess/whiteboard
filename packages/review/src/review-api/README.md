@@ -5,9 +5,9 @@ A headless `--state-dir` or `DEV_REVIEW_SERVER_DIR` selects an isolated profile;
 Desktop can view it by using the same directory as `DEV_REVIEW_HOME`.
 Both hosts mount the same routes behind token authentication and a bounded JSON request reader.
 The canvas and Home read only the native JSON store. `POST /:id/open` opens a review
-in Desktop, and pinned tabs reopen after restart. The startup importer migrates
-saved MDX reviews before the server starts; there is no legacy runtime or second
-catalog. Tests inject the native store and source-data provider.
+in Desktop, and pinned tabs reopen after restart. Saved MDX reviews are not
+imported; there is no legacy runtime or second catalog. Tests inject the native
+store and source-data provider.
 
 ## Storage and ownership
 
