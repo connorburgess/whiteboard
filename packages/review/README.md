@@ -6,9 +6,10 @@ also provides `review` as an alias for `whiteboard`.
 `whiteboard server` and `whiteboard trace` run without installing or starting Desktop.
 Whiteboard Desktop displays the review canvas; its server owns review
 discovery, session state, and presentation. Legacy reviews
-published with the removed MDX toolchain have a durable UUID directory under
-`${DEV_REVIEW_HOME:-~/.dev}/reviews/<uuid>/` and are imported into the JSON
-store when Home lists them or when they are opened.
+published with the removed MDX toolchain stay on disk under
+`${DEV_REVIEW_HOME:-~/.dev}/reviews/<uuid>/`, but Whiteboard no longer imports
+them or lists them on Home. A request for one by its UUID reports that the
+review was not found and suggests asking an agent to migrate it.
 
 ## Workspace packages
 
@@ -29,17 +30,10 @@ repository root) converts a branch that predates the aliases.
 
 ## Migration
 
-To migrate stored reviews with a compatible `whiteboard` command, run:
-
-```sh
-whiteboard migrate apply
-```
-
-The command normalizes stored review schema versions, regenerates presented
-artifacts, converts Jujutsu repositories and Whiteboard-managed checkouts, and
-removes legacy global CLI installs and catalog entries. It reports blockers
-for items that need manual correction; fix each one and run the command
-again. Use `--force` to restart interrupted state.
+Whiteboard no longer migrates legacy MDX reviews. The hidden
+`whiteboard migrate apply` command accepts `--force` and `--json`, shows
+guidance to ask your agent to migrate your old Whiteboard reviews, and exits
+with code 1.
 
 ## Usage
 
